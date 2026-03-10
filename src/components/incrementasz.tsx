@@ -4,11 +4,13 @@ type IncrementaszProps = {
     lukaszCount: number
     lukaszIncrement: number
     lukaszIncrementValue: number
+    boughtIncrementAmount: number
     setLukaszCount: React.Dispatch<React.SetStateAction<number>>
     setLukaszIncrement: React.Dispatch<React.SetStateAction<number>>
+    setBoughtIncrementAmount: React.Dispatch<React.SetStateAction<number>>
 }
 
-const Incrementasz = ( {lukaszCount, lukaszIncrement, lukaszIncrementValue, setLukaszIncrement, setLukaszCount}: IncrementaszProps ) => {
+const Incrementasz = ( {lukaszCount, lukaszIncrement, lukaszIncrementValue, setLukaszIncrement, setLukaszCount, setBoughtIncrementAmount, boughtIncrementAmount}: IncrementaszProps ) => {
 
     const [lukaszIncrementCost, setLukaszIncrementCost] = useState(10)
 
@@ -21,7 +23,8 @@ const Incrementasz = ( {lukaszCount, lukaszIncrement, lukaszIncrementValue, setL
 
         setLukaszIncrement(lukaszIncrement + lukaszIncrementValue)
         setLukaszCount(lukaszCount - lukaszIncrementCost)
-        setLukaszIncrementCost(lukaszIncrementCost * 1.2)
+        setBoughtIncrementAmount(boughtIncrementAmount + 1)
+        setLukaszIncrementCost(lukaszIncrementCost + Math.pow(2, Math.log2(boughtIncrementAmount * 6)))
     }
 
     return(

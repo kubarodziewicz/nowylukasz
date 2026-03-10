@@ -12,6 +12,7 @@ function App() {
     const [lukaszMultiValue, setLukaszMultiValue] = useState(0)
     const [lukaszIncrement, setLukaszIncrement] = useState(1)
     const [lukaszIncrementValue, setLukaszIncrementValue] = useState(1)
+    const [boughtIncrementAmount, setBoughtIncrementAmount] = useState(0)
 
     const [canShowIncrementasz, setCanShowIncrementasz] = useState(false)
     const [canShowUpgradasz, setCanShowUpgrades] = useState(false)
@@ -23,7 +24,7 @@ function App() {
             <h1>KLikasz</h1>
             <CanShowasz lukaszCount={lukaszCount} setCanShowIncrementasz={setCanShowIncrementasz} setCanShowUpgradasz={setCanShowUpgrades} setCanShowMultisz={setCanShowMultisz} />
             <Klikasz lukaszCount={lukaszCount} setLukaszCount={setLukaszCount} lukaszIncrement={lukaszIncrement} lukaszMulti={lukaszMulti} lukaszMultiValue={lukaszMultiValue}/>
-            { canShowIncrementasz && <Incrementasz setLukaszCount={setLukaszCount} setLukaszIncrement={setLukaszIncrement} lukaszIncrement={lukaszIncrement} lukaszCount={lukaszCount} lukaszIncrementValue={lukaszIncrementValue} /> }
+            { canShowIncrementasz && <Incrementasz boughtIncrementAmount={boughtIncrementAmount} setBoughtIncrementAmount={setBoughtIncrementAmount} setLukaszCount={setLukaszCount} setLukaszIncrement={setLukaszIncrement} lukaszIncrement={lukaszIncrement} lukaszCount={lukaszCount} lukaszIncrementValue={lukaszIncrementValue} /> }
             { canShowUpgradasz && <Upgradasz canShowMultisz={canShowMultisz} lukaszMultiValue={lukaszMultiValue} setLukaszMultiValue={setLukaszMultiValue} lukaszIncrementValue={lukaszIncrementValue} setLukaszIncrementValue={setLukaszIncrementValue} lukaszCount={lukaszCount} lukaszIncrement={lukaszIncrement} lukaszMulti={lukaszMulti} setLukaszCount={setLukaszCount} setLukaszIncrement={setLukaszIncrement} setLukaszMulti={setLukaszMulti}/>}
             { canShowMultisz && <Multisz lukaszMultiValue={lukaszMultiValue} setLukaszCount={setLukaszCount} setLukaszMulti={setLukaszMulti} lukaszCount={lukaszCount} lukaszMulti={lukaszMulti}/> }
         </>
