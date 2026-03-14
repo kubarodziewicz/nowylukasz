@@ -1,4 +1,4 @@
-﻿import {useEffect, useState} from "react"
+﻿import {type Dispatch, useEffect, useState} from "react"
 import "../styles/upgradasz.css"
 
 type upgradaszProps = {
@@ -10,6 +10,7 @@ type upgradaszProps = {
     lukaszMultiValue: number,
     up3Value: number,
     boughtIncrementAmount: number,
+    globalIncrementaszMultiplier: number
 
     setLukaszCount: React.Dispatch<React.SetStateAction<number>>,
     setLukaszIncrement: React.Dispatch<React.SetStateAction<number>>,
@@ -18,6 +19,7 @@ type upgradaszProps = {
     setLukaszMultiValue: React.Dispatch<React.SetStateAction<number>>,
     setUp3Value: React.Dispatch<React.SetStateAction<number>>
     setUp5Value: React.Dispatch<React.SetStateAction<number>>
+    setGlobalIncrementaszMultiplier: Dispatch<React.SetStateAction<number>>
 
     canShowMultisz: boolean,
 }
@@ -38,7 +40,9 @@ const Upgradasz = ( {
                         setLukaszIncrementValue,
                         setUp3Value,
                         canShowMultisz,
-                        setUp5Value
+                        setUp5Value,
+                        globalIncrementaszMultiplier,
+                        setGlobalIncrementaszMultiplier,
 }: upgradaszProps ) => {
 
     const [up1, setUp1] = useState(false)
@@ -49,10 +53,13 @@ const Upgradasz = ( {
 
     function handleUpgrade1() {
         if(!up1 && lukaszCount >= 100) {
-            setUp1(true)
-            setLukaszIncrementValue(lukaszIncrementValue * 1.5)
-            setLukaszIncrement(lukaszIncrement * 1.5)
-            setLukaszCount(lukaszCount - 100 )
+            const newMultiplier = globalIncrementaszMultiplier * 1.5;
+            setUp1(true);
+            setGlobalIncrementaszMultiplier(newMultiplier);
+
+            setLukaszIncrementValue(prev => Math.round(prev * 1.5 * 100) / 100);
+            setLukaszIncrement(prev => prev * 1.5);
+            setLukaszCount(lukaszCount - 100);
         } else {
             return;
         }
@@ -78,9 +85,12 @@ const Upgradasz = ( {
 
     function handleUpgrade4() {
         if(!up4 && lukaszCount >= 100000) {
-            setUp4(true)
-            setLukaszIncrementValue(lukaszIncrementValue * 3)
-            setLukaszIncrement(lukaszIncrement * 3)
+            const newMultiplier = globalIncrementaszMultiplier * 3;
+            setUp4(true);
+            setGlobalIncrementaszMultiplier(newMultiplier);
+
+            setLukaszIncrementValue(prev => Math.round(prev * 3 * 100) / 100);
+            setLukaszIncrement(prev => prev * 3);
             setLukaszCount(lukaszCount - 100000 )
         } else {
             return;
@@ -92,7 +102,7 @@ const Upgradasz = ( {
             setUp5(true);
             setUp5Value(0.05);
             const currentBonus = 1 * (1 + (boughtIncrementAmount / 20));
-            setLukaszIncrementValue(Math.round(currentBonus * 100) / 100);
+            setLukaszIncrementValue(Math.round(currentBonus*globalIncrementaszMultiplier * 100) / 100);
 
             setLukaszCount(lukaszCount - 500000 )
 

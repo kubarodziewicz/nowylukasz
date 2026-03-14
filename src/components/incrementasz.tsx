@@ -6,6 +6,7 @@ type IncrementaszProps = {
     lukaszIncrement: number
     lukaszIncrementValue: number
     boughtIncrementAmount: number
+    globalIncrementaszMultiplier: number
 
     up5Value: number
 
@@ -13,9 +14,10 @@ type IncrementaszProps = {
     setLukaszIncrement: React.Dispatch<React.SetStateAction<number>>
     setBoughtIncrementAmount: React.Dispatch<React.SetStateAction<number>>
     setLukaszIncrementValue: React.Dispatch<React.SetStateAction<number>>
+    setGlobalIncrementaszMultiplier: React.Dispatch<React.SetStateAction<number>>
 }
 
-const Incrementasz = ( {lukaszCount, lukaszIncrement, lukaszIncrementValue, setLukaszIncrement, setLukaszCount, setBoughtIncrementAmount, boughtIncrementAmount, up5Value, setLukaszIncrementValue}: IncrementaszProps ) => {
+const Incrementasz = ( {lukaszCount, lukaszIncrement, lukaszIncrementValue, setLukaszIncrement, setLukaszCount, setBoughtIncrementAmount,globalIncrementaszMultiplier,setGlobalIncrementaszMultiplier,  boughtIncrementAmount, up5Value, setLukaszIncrementValue}: IncrementaszProps ) => {
 
     const [lukaszIncrementCost, setLukaszIncrementCost] = useState(10)
 
@@ -29,8 +31,11 @@ const Incrementasz = ( {lukaszCount, lukaszIncrement, lukaszIncrementValue, setL
 
         const newAmount = boughtIncrementAmount + 1;
 
-        const multiplier = up5Value > 0 ? (1 + (newAmount / 20)) : 1;
-        const nextValue = Math.round(1 * multiplier * 100) / 100;
+
+        const up5Multiplier = up5Value > 0 ? (1 + (newAmount / 20)) : 1;
+
+
+        const nextValue = Math.round(1 * globalIncrementaszMultiplier * up5Multiplier * 100) / 100;
 
         setLukaszIncrementValue(nextValue);
         setBoughtIncrementAmount(newAmount);

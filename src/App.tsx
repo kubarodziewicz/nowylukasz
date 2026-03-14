@@ -12,6 +12,8 @@ function App() {
     const [lukaszMulti, setLukaszMulti] = useState(1)
     const [lukaszMultiValue, setLukaszMultiValue] = useState(0)
     const [boughtMultiszAmount, setBoughtMultiszAmount] = useState(0)
+    const [globalIncrementaszMultiplier, setGlobalIncrementaszMultiplier] = useState(1);
+
 
     const [up3Value, setUp3Value] = useState(1)
     const [up5Value, setUp5Value] = useState(0)
@@ -77,7 +79,9 @@ function App() {
                         lukaszCount={lukaszCount}
                         lukaszIncrementValue={lukaszIncrementValue}
                         up5Value={up5Value}
-                        setLukaszIncrementValue={setLukaszIncrementValue}/> }
+                        setLukaszIncrementValue={setLukaszIncrementValue}
+                        globalIncrementaszMultiplier={globalIncrementaszMultiplier}
+                        setGlobalIncrementaszMultiplier={setGlobalIncrementaszMultiplier}/> }
 
                 { canShowUpgradasz &&
                     <Upgradasz
@@ -93,7 +97,9 @@ function App() {
                         setLukaszMulti={setLukaszMulti}
                         setUp3Value={setUp3Value}
                         up3Value={up3Value}
-                        setUp5Value={setUp5Value}/>}
+                        setUp5Value={setUp5Value}
+                        globalIncrementaszMultiplier={globalIncrementaszMultiplier}
+                        setGlobalIncrementaszMultiplier={setGlobalIncrementaszMultiplier}/>}
 
 
                 { canShowMultisz &&
