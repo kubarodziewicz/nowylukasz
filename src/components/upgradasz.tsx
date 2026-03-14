@@ -139,7 +139,7 @@ const Upgradasz = ( {
                 {canShowMultisz &&
                     <section className="upgradasz" id="upgradasz-two">
                         <p>Upgradasz2</p>
-                        <p>!! DODAJ MULTISZ NA PODSTAWIE lukasz !! <br/>(obecnie: +{lukaszMultiValue.toFixed(2)})</p>
+                        <p>!! DODAJ MULTISZ NA PODSTAWIE lukasz !! <br/>(obecnie: +{(Math.log10(lukaszCount) - 1).toFixed(2)})</p>
                         <button disabled={up2} onClick={handleUpgrade2}>3000 Lukaszów</button>
                     </section>
                 }

@@ -7,7 +7,7 @@ import Upgradasz from "./components/upgradasz.tsx";
 import CanShowasz from "./components/canShowasz.tsx";
 
 function App() {
-    const [lukaszCount, setLukaszCount] = useState(10000000)
+    const [lukaszCount, setLukaszCount] = useState(1)
 
     const [lukaszMulti, setLukaszMulti] = useState(1)
     const [lukaszMultiValue, setLukaszMultiValue] = useState(0)
@@ -19,7 +19,7 @@ function App() {
     const [up5Value, setUp5Value] = useState(0)
 
 
-    const [lukaszIncrement, setLukaszIncrement] = useState(10)
+    const [lukaszIncrement, setLukaszIncrement] = useState(1)
     const [lukaszIncrementValue, setLukaszIncrementValue] = useState(1)
     const [boughtIncrementAmount, setBoughtIncrementAmount] = useState(0)
 
