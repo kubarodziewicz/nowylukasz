@@ -1,9 +1,9 @@
-.incrementaszButtonSection {
+﻿.multiszButtonSection {
     display: flex;
     align-items: center;
 }
 
-.incrementaszButtonSection button {
+.multiszButtonSection button {
     height: 50%;
     margin: 10px;
 }
